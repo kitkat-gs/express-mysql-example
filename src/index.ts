@@ -18,6 +18,13 @@ const app = express();
 // アプリケーションのポート番号を指定
 const port = 3000;
 
+// cross origin制約の回避
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // ------------------------------------------------------------------------------------------------
 // api
 
